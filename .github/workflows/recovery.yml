@@ -4,14 +4,19 @@ on:
    workflow_dispatch:
 
 env:
-  MANIFEST: git://github.com/SKYHAWK-Recovery-Project/platform_manifest_twrp_omni.git -b android-9.0
-  DEVICE: rosy
-  DT_LINK: https://github.com/JamieHoSzeYui/android_recovery_xiaomi_rosy
-  DT_PATH: device/xiaomi/rosy
-  KERNEL_LINK: https://github.com/Pulkit077/kernel_xiaomi_rosy
-  KERNEL_PATH: kernel/xiaomi/rosy
-  TARGET: recoveryimage
-  TZ: Asia/Kolkata
+  TG_TOKEN: ${{ secrets.TG_TOKEN }}
+  TG_CHAT_ID: ${{ secrets.TG_CHAT_ID }}
+  DEVICE: ${{ secrets.DEVICE }}
+  DT_LINK: ${{ secrets.DT_LINK }}
+  DT_PATH: ${{ secrets.DT_PATH }}
+  MANIFEST: ${{ secrets.MANIFEST }}
+  MANIFEST_BRANCH : ${{ secrets.MANIFEST_BRANCH }}
+  TARGET: ${{ secrets.TARGET }}
+  BUILD_TYPE: ${{ secrets.BUILD_TYPE }}
+  TZ: ${{ secrets.TZ }}
+  COMMAND: ${{ secrets.COMMAND }}
+  RCLONE: ${{ secrets.RCLONE }}
+  DRIVE: ${{ secrets.DRIVE }}
 
 jobs:
   build:
