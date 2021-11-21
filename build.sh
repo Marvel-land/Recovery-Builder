@@ -42,4 +42,16 @@ CCACHE_DIR=/opt/ccache ccache -M 10G &>/dev/null
 printf "All Preparation Done.\nReady To Build Recoveries...\n"
 echo "::endgroup::"
 
+# cd To An Absolute Path
+mkdir -p /home/runner/builder &>/dev/null
+cd /home/runner/builder || exit 1
 
+echo "::group::Sync Recovery Source"
+repo init -u $MANIFEST -b $MANIFEST_BRANCH --depth=1 --groups=all,-notdefault,-device,-darwin,-x86,-mips
+repo sync -c --no-clone-bundle --no-tags --optimized-fetch --force-sync -j$(nproc --all)
+git clone $DT_LINK --depth=1 --single-branch $DT_PATH
+echo "::endgroup::"
+
+echo "::group::Compile"
+. build/envsetup.sh &&lunch omni_$DEVICE-$BUILD_TYPE && make $TARGET -j2 2>&1 | tee build.log
+echo "::endgroup::"
