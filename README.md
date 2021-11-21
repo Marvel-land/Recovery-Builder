@@ -1,14 +1,6 @@
-# Building recovery online made easy #
+# Recovery Builder #
 
-## Important notice ##
-### Users reported build errors forking to own account. ###
-### To fix this, create a new organization, fork to the new organization. This fixes the problem, for now.
-
-## Important notice 2 ##
-### I realized that some recovery trees has prebuilt kernels, which makes this basically useless. ###
-### If your recovery tree has prebuilt kernel, move to [this](https://github.com/Area69Lab/Recovery-Builder-NoKernel) ###
-
-#### What this is ####
+#### What this is ? ####
 
 This is an easy way for recovery maintainers or anyone who's interested in building recoveries to finish their dream without a server.
 
@@ -18,44 +10,44 @@ This works with GitHub actions, thank GitHub not me.
 
 Here are some useful notes to using this tool brewed with black magic.
 
-1. Fork the repo to a organization
+1. Fork the repo anywhere.
 
-2. Set the variables, as listed below.
+2. Set the secrets, as listed below.
 
-Update : If you don't understand the manifest command, check [this](https://github.com/Area69Lab/Recovery-builder/blob/master/guide.md)
+```MANIFEST : Link to your recovery manifest, Google it if you don't know what this is.```
 
-Some variables that you'd like to set:
+```MANIFEST_BRANCH : Branch of recovery manifest```
 
-```MANIFEST : Link to your recovery manifest, Google it if you don't know what this is```
-
-```DEVICE : Most likely your device codename, e.g. rosy, sakura, curtana, etc.```
+```DEVICE : Most likely your device codename, e.g. land, rosy, sakura, curtana, etc.```
 
 ```DT_LINK : Link to your recovery device tree.```
 
-```DT_PATH : Path to clone your device tree ```
-
-```KERNEL_LINK : Link to your device kernel source ```
-
-```KERNEL_PATH : Path to clone your kernel tree ```
+```DT_PATH : Path to clone your device tree, e.g. device/xiaomi/land ```
 
 ```TARGET : recoveryimage or bootimage, depending on if your phone has a recovery partition or not ```
 
+```TG_TOKEN : your telegram Bot Token ```
+
+```TG_CHAT_ID : your telegram Chat ID ```
+
+```BUILD_TYPE : eng, user or userdebug ```
+
+```TZ : your timezone, e.g. Asia/Kolkata ```
+
+```COMMAND : use it to clone if anything else needed, e.g. Theme, kernel, etc ```
+
+```RCLONE : your rclone config ```
+
+```DRIVE : Link to your Index or Drive ```
+
 3. Go to actions tab, enable workflows.
 
-4. Star the repo, go to actions tab again, and let black magic go brrr.
+4. Select Recovery-builder workflow.
+
+5. Run workflow.
 
 If you don't know any of these, **Ask [Google](https://www.google.com) or someone who builds recoveries**, I don't provide TWRP building support.
 
-You'd also like to do edits on your recovery device tree first if your recovery needs that (e.g. SHRP, etc.)
-
-#### Credits and thanks and stuff like that ####
-
-Made with blek magic by [***Jamie***](https://t.me/henloboi)
-
-Infinite help from [***ElytrA8***](t.me/ElytrA8)
-
-Recovery building help from [***Pulkit***](t.me/Pulkit077)
-
-And lastly, all TWRP compiling help from Google.
+You'd also like to do edits on your recovery device tree first if your recovery needs that (e.g. SHRP, PBRP, etc.)
 
 Enjoy buildbotting.
