@@ -26,6 +26,9 @@ jobs:
     steps:
        - name: Checkout Repo
          uses: actions/checkout@v2
+
+       - name: Cleanup Space
+         run: source cleanup.sh
          
        - name: Initializing environment
          run: |
